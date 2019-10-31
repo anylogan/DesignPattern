@@ -1,0 +1,8 @@
+Owner 实现单例模式
+EmployeeFactory实现工厂模式
+OwnerDecorator 实现装饰器模式  让owner干雇员的活
+AnimialVisitor 实现visitor模式  animal模块写好accept方法    饲养员去访问所有的动物
+Command    有两种command提交和退回  实现command接口 Owner中可以takeCommand(加入订单)和运行命令 placeCommand
+Memento实现 备忘录   通过退货 返回原来的货物和金钱状态 Owner 有一个returnProduct方法产生退货命令 加入到commandList中
+Mediator 实现中介者   雇员们和主人在聊天室聊天，聊天室充当中介者，每个人把要说的话发给他，聊天室展现出来
+Proxy  Owner调用sale方法实际调用salesman的sale方法   实现代理
