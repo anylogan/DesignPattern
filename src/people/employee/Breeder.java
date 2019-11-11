@@ -1,11 +1,13 @@
 package people.employee;
 
+import room.Accommodation;
+import room.ChickenCoop;
 import people.ChatRoom;
 import people.People;
-import animal.*;
 public class Breeder implements People,AnimalVisitor {
     @Override
-    public void work() {
+    public void work(Accommodation accommodation) {
+        accommodation.feeding();
         System.out.println("breeder bree");
     }
 
@@ -19,19 +21,9 @@ public class Breeder implements People,AnimalVisitor {
     }
 
     @Override
-    public void visit(Fish fish)
+    public void visit(ChickenCoop chickenCoop)
     {
-        System.out.println("Display Fish");
+       chickenCoop.accept();
     }
-    @Override
-    public void visit(Ox ox)
-    {
-        System.out.println("Display Ox");
-    }
-    @Override
-    public void visit(Chicken chicken)
-    {
 
-        System.out.println("Display Chicken");
-    }
 }

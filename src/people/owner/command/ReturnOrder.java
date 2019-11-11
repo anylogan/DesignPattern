@@ -1,16 +1,23 @@
 package people.owner.command;
 
-import product.Order;
+import people.owner.Owner;
+import people.owner.memento.Memento;
+import prototype.Order;
 
 public class ReturnOrder  implements Command {
-    private Order order;
+    public  int index;
 
-    public  ReturnOrder(Order order){
+    public  ReturnOrder(int index){
 
-        this.order=order;
+        this.index=index;
     }
 
-    public void execute() {
-      order.Return();
+    public void execute()
+    {
+        Memento memento=Memento.getInstance();
+        Order o=memento.getState(index);
+        Owner owner=Owner.getInstance();
+        owner.money-=o.getNum();
+        System.out.println("ReturnOrder is successfully");
     }
 }

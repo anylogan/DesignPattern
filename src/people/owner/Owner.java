@@ -6,19 +6,20 @@ import people.employee.Salesman;
 import people.owner.command.Command;
 import people.owner.command.ReturnOrder;
 import people.owner.memento.Memento;
-import product.Order;
+import prototype.Order;
+import room.Accommodation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Owner implements People {
-    //创建 owner 的一个对象
+    //鍒涘缓 owner 鐨勪竴涓璞�
     private volatile static Owner instance;
-    private int money ;   //money用来实现备忘录模式
+    public int money ;   //money鐢ㄦ潵瀹炵幇澶囧繕褰曟ā寮�
     private Memento memento;
     private Salesman salesman;
     private List<Command> commandList = new ArrayList<Command>();
-    //让构造函数为 private，这样该类就不会被实例化
+    //璁╂瀯閫犲嚱鏁颁负 private锛岃繖鏍疯绫诲氨涓嶄細琚疄渚嬪寲
     private Owner() {
     }
 
@@ -34,21 +35,11 @@ public class Owner implements People {
     }
 
     @Override
-    public void work() {
-        System.out.println("发工资什么的");
+    public void work(Accommodation accommodation) {
+        System.out.println("Owner Work");
     }
 
-    public void returnOrder(int ordernumber)   //
-    {
-        //产生一个ReturnOrder命令
-        Order order=memento.getState(ordernumber);
-
-        ReturnOrder returnorder=new ReturnOrder(order);  //创建退货命令
-
-        //计算钱
-        //money加上去
-        //仓库里把货物放进去
-    }
+ 
     @Override
     public void chat(String message) {
         ChatRoom.showMessage(this,message);

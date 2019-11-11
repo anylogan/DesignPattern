@@ -1,6 +1,7 @@
 package people.owner;
 
 import people.People;
+import room.Accommodation;
 
 public class BreederOwnerDecorator extends OwnerDecorator {
     public BreederOwnerDecorator(People decoratorPeople)
@@ -9,9 +10,9 @@ public class BreederOwnerDecorator extends OwnerDecorator {
     }
 
     @Override
-    public  void work()
+    public  void work(Accommodation accommodation)
     {
-        decoratorowner.work();
+        decoratorowner.work(accommodation);
         doBreederWork(decoratorowner);
 
     }

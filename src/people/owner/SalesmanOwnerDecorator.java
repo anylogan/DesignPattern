@@ -1,6 +1,8 @@
 package people.owner;
 
 import people.People;
+import room.Accommodation;
+import sun.java2d.pipe.hw.AccelDeviceEventListener;
 
 public class SalesmanOwnerDecorator extends OwnerDecorator{
     public SalesmanOwnerDecorator(People decoratorPeople)
@@ -9,9 +11,9 @@ public class SalesmanOwnerDecorator extends OwnerDecorator{
     }
 
     @Override
-    public  void work()
+    public  void work(Accommodation accommodation)
     {
-        decoratorowner.work();
+        decoratorowner.work(accommodation);
         doSalesmanWork(decoratorowner);
 
     }

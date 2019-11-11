@@ -2,11 +2,13 @@ package people.employee;
 
 import people.ChatRoom;
 import people.People;
-import product.Order;
+import people.owner.Owner;
+import prototype.Order;
+import room.Accommodation;
 
 public class Salesman implements People {
     @Override
-    public void work() {
+    public void work(Accommodation accommodation) {
         System.out.println("salesman sale");
     }
     @Override
@@ -20,6 +22,9 @@ public class Salesman implements People {
 
     public void sale(Order order)
     {
-        System.out.println("把产品卖出去了");
+        Owner owner=Owner.getInstance();
+        order.setNum(10);
+        owner.money+=order.getNum();
+        System.out.println("order has been sold");
     }
 }
